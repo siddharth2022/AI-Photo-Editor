@@ -1,0 +1,190 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}@import url("https://fonts.googleapis.com/css?family=Work+Sans:400,700,900");
+
+img {
+  width: 25%;
+}
+
+.button {
+  touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: inline-block;
+  border: .2em solid;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  opacity: 0.6;
+  color: #FFF;
+}
+
+.button__text:before {
+  content: attr(title);
+}
+
+.button__text--bis {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transform: translateX(-1em);
+  transform: translateX(-1em);
+  opacity: 0;
+}
+
+.button__mask {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  -webkit-transform: translateX(-100%) rotate(45deg);
+  transform: translateX(-100%) rotate(45deg);
+  transition: all 0.3s;
+}
+
+.button:hover {
+  opacity: 1;
+}
+
+.button:hover .button__text {
+  -webkit-animation: fx-text .3s ease-out;
+  animation: fx-text .3s ease-out;
+}
+
+.button:hover .button__text--bis {
+  -webkit-animation: fx-text-bis .3s ease-out;
+  animation: fx-text-bis .3s ease-out;
+}
+
+.button:hover .button__mask {
+  -webkit-animation: fx-mask .3s ease-out;
+  animation: fx-mask .3s ease-out;
+}
+
+.button:active {
+  opacity: 1;
+  background: white;
+  color: inherit;
+}
+
+@-webkit-keyframes fx-mask {
+  0% {
+    -webkit-transform: translateX(-100%) rotate(45deg);
+    transform: translateX(-100%) rotate(45deg);
+  }
+
+  100% {
+    -webkit-transform: translateX(100%) rotate(45deg);
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+@keyframes fx-mask {
+  0% {
+    -webkit-transform: translateX(-100%) rotate(45deg);
+    transform: translateX(-100%) rotate(45deg);
+  }
+
+  100% {
+    -webkit-transform: translateX(100%) rotate(45deg);
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+@-webkit-keyframes fx-text {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: translateX(1em);
+    transform: translateX(1em);
+    opacity: 0;
+  }
+}
+
+@keyframes fx-text {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: translateX(1em);
+    transform: translateX(1em);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fx-text-bis {
+  0% {
+    -webkit-transform: translateX(-1em);
+    transform: translateX(-1em);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fx-text-bis {
+  0% {
+    -webkit-transform: translateX(-1em);
+    transform: translateX(-1em);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.button__text {
+  display: block;
+  padding: 1em 2em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.fontst {
+  font-family: 'Megrim';
+  font-size: 550%;
+  font-weight: 150;
+  margin-top: 9%;
+  letter-spacing: 4px;
+
+}
+
+body {
+  background-color: rgb(13, 13, 13);
+}
+
+.mleft {
+  margin-left: 20%;
+}
+
+.mright {
+  margin-right: 20;
+}
+
+.desc {
+  color: white;
+  text-align: center;
+  margin-top: 5%;
+  font-size: 130%;
+  font-family: 'Julius Sans One';
+}
