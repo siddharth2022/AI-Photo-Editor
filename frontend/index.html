@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script>
+function show(shown) {
+  document.getElementById('index').style.display='none';
+  document.getElementById('fogg_removal').style.display='none';
+  document.getElementById('blur_to_hd').style.display='none';
+  document.getElementById('face_aging').style.display='none';
+  document.getElementById('image_to_map').style.display='none';
+  document.getElementById('object_removal').style.display='none';
+  document.getElementById(shown).style.display='block';
+  return false;
+}
+
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./css/reset.min.css">
@@ -9,44 +22,46 @@
   <link href='https://fonts.googleapis.com/css?family=Megrim' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Photo Editor | Homepage</title>
+  <title>AI Photo Editor</title>
   <link rel="icon" href="image/o-letter.png" type="image/png" sizes="16x16">
 </head>
-<body>
+<body  onload="return show('index');">
+
+<div id="index">
     <div style="text-align: center;color: white;" class="fontst">AI Ph<img style="height:47px ;width:47px;"
       src="image/o-letter.png">to Editor</div>
   <div class="desc">"Enhance your photos"</div>
-
   <div class="row center" style="margin-top:10% ">
-    <a href="rfog.html">
+    <a href="#" onclick="return show('fogg_removal');">
       <div class="button">
         <span class="button__mask"></span>
         <span class="button__text">Remove Fog</span>
         <span class="button__text button__text--bis">Remove Fog</span>
       </div>
     </a>
-    <a href="robj.html">
+	
+    <a href="#" onclick="return show('object_removal');">
       <div class="button" style="margin-inline-start: 4%">
         <span class="button__mask"></span>
         <span class="button__text">Remove Object</span>
         <span class="button__text button__text--bis">Remove Object</span>
       </div>
     </a>
-    <a href="blrtohd.html">
+    <a href="#" onclick="return show('blur_to_hd');">
       <div class="button" style="margin-inline-start: 4%">
         <span class="button__mask"></span>
         <span class="button__text">Blur to HD</span>
         <span class="button__text button__text--bis">Blur to HD</span>
       </div>
     </a>
-    <a href="faceage.html">
+    <a href="#" onclick="return show('face_aging');">
       <div class="button" style="margin-inline-start: 4%">
         <span class="button__mask"></span>
         <span class="button__text">Face Aging</span>
         <span class="button__text button__text--bis">Face Aging</span>
       </div>
     </a>
-    <a href="imgtomap.html">
+    <a href="#" onclick="return show('image_to_map');">
       <div class="button" style="margin-inline-start: 4%">
         <span class="button__mask"></span>
         <span class="button__text">Image to Map</span>
@@ -57,6 +72,126 @@
   <div class="img center" style="margin-top: 5%">
     <img src="image/abc.jpg" alt="The Social Media" class="center">
   </div>
+</div>
+
+<div id="face_aging">
+<nav class="black">
+                <div class="nav-wrapper">
+                  <a href="index.html" class="brand-logo">AI Ph<img style="height:17px ;width:17px;"
+                    src="image/o-letter.png">to Editor</a>
+                  <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Downloads</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                  </ul>
+                </div>
+              </nav>
+    <div style="text-align: center;color: white;" class="fontst">Look How You'll Look</div>
+  <div class="desc">In The Future<br>
+  <div class="row center" style="margin-top:4%; margin-right:3.77%;">
+  <div class="button" style="margin-inline-start: 4%">
+        <span class="button__mask"></span>
+        <span class="button__text">Upload<span>
+        <span class="button__text button__text--bis">Upload</span></div>
+      </div>
+	</div>
+</div>
+</div>
+
+<div id="image_to_map">
+ <nav class="black">
+                <div class="nav-wrapper">
+                  <a href="index.html" class="brand-logo">AI Ph<img style="height:17px ;width:17px;"
+                    src="image/o-letter.png">to Editor</a>
+                  <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Downloads</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                  </ul>
+                </div>
+              </nav>
+    <div style="text-align: center;color: white;" class="fontst">Create Map</div>
+  <div class="desc">From Satellite Image<br>
+  <div class="row center" style="margin-top:4%; margin-right:3.77%;">
+  <div class="button" style="margin-inline-start: 4%">
+        <span class="button__mask"></span>
+        <span class="button__text">Upload<span>
+        <span class="button__text button__text--bis">Upload</span></div>
+      </div>
+	</div>
+</div>
+</div>
+
+<div id="fogg_removal">
+       <nav class="black">
+                <div class="nav-wrapper">
+                  <a href="index.html" class="brand-logo">AI Ph<img style="height:17px ;width:17px;"
+                    src="image/o-letter.png">to Editor</a>
+                  <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Downloads</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                  </ul>
+                </div>
+              </nav>
+    <div style="text-align: center;color: white;" class="fontst">Remove Fog</div>
+  <div class="desc">From your photo<br>
+  <div class="row center" style="margin-top:4%; margin-right:3.77%;">
+  <div class="button" style="margin-inline-start: 4%">
+        <span class="button__mask"></span>
+        <span class="button__text">Upload<span>
+        <span class="button__text button__text--bis">Upload</span></div>
+      </div>
+	</div>
+</div>
+
+<div id="object_removal">
+ <nav class="black">
+                <div class="nav-wrapper">
+                  <a href="index.html" class="brand-logo">AI Ph<img style="height:17px ;width:17px;"
+                    src="image/o-letter.png">to Editor</a>
+                  <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Downloads</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                  </ul>
+                </div>
+              </nav>
+    <div style="text-align: center;color: white;" class="fontst">Remove Any Objects</div>
+  <div class="desc">From your photo<br>
+  <div class="row center" style="margin-top:4%; margin-right:3.77%;">
+  <div class="button" style="margin-inline-start: 4%">
+        <span class="button__mask"></span>
+        <span class="button__text">Upload<span>
+        <span class="button__text button__text--bis">Upload</span></div>
+      </div>
+	</div>
+</div>
+</div>
+
+<div id="blur_to_hd">
+        <nav class="black">
+                <div class="nav-wrapper">
+                  <a href="index.html" class="brand-logo">AI Ph<img style="height:17px ;width:17px;"
+                    src="image/o-letter.png">to Editor</a>
+                  <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Downloads</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                  </ul>
+                </div>
+              </nav>
+    <div style="text-align: center;color: white;" class="fontst">Convert To High Resolution Photo</div>
+  <div class="desc">From Low Resolution<br>
+  <div class="row center" style="margin-top:4%; margin-right:3.77%;">
+  <div class="button" style="margin-inline-start: 4%">
+        <span class="button__mask"></span>
+        <span class="button__text">Upload<span>
+        <span class="button__text button__text--bis">Upload</span></div>
+      </div>
+	</div>
+</div>
+</div>
 
 </body>
 </html>
