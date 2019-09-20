@@ -10,6 +10,7 @@
       document.getElementById('face_aging').style.display = 'none';
       document.getElementById('image_to_map').style.display = 'none';
       document.getElementById('object_removal').style.display = 'none';
+      document.getElementById('show_image').style.display = 'none';
       document.getElementById(shown).style.display = 'block';
       return false;
     }
@@ -25,6 +26,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Photo Editor</title>
   <link rel="icon" href="image/o-letter.png" type="image/png" sizes="16x16">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
 </head>
 
 <body onload="return show('index');">
@@ -79,7 +83,8 @@
   <div id="face_aging">
     <nav class="black">
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo" onclick="return show('index');">AI Ph<img style="height:17px ;width:17px;" src="image/o-letter.png">to
+        <a href="#" class="brand-logo" onclick="return show('index');">AI Ph<img style="height:17px ;width:17px;"
+            src="image/o-letter.png">to
           Editor</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="#" onclick="return show('index');">Home</a></li>
@@ -93,7 +98,7 @@
       <div class="row center" style="margin-top:4%; margin-right:3.77%;">
         <div class="button" style="margin-inline-start: 4%">
           <span class="button__mask"></span>
-          <span class="button__text">Upload<span>
+          <span class="button__text" onclick="sendFile('face_aging')">Upload<span>
               <span class="button__text button__text--bis">Upload</span></div>
       </div>
     </div>
@@ -103,7 +108,8 @@
   <div id="image_to_map">
     <nav class="black">
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo" onclick="return show('index');">AI Ph<img style="height:17px ;width:17px;" src="image/o-letter.png">to
+        <a href="#" class="brand-logo" onclick="return show('index');">AI Ph<img style="height:17px ;width:17px;"
+            src="image/o-letter.png">to
           Editor</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="#" onclick="return show('index');">Home</a></li>
@@ -117,7 +123,7 @@
       <div class="row center" style="margin-top:4%; margin-right:3.77%;">
         <div class="button" style="margin-inline-start: 4%">
           <span class="button__mask"></span>
-          <span class="button__text">Upload<span>
+          <span class="button__text" onclick="sendFile('image_to_map')">Upload<span>
               <span class="button__text button__text--bis">Upload</span></div>
       </div>
     </div>
@@ -127,7 +133,8 @@
   <div id="fogg_removal">
     <nav class="black">
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo" onclick="return show('index');">AI Ph<img style="height:17px ;width:17px;" src="image/o-letter.png">to
+        <a href="#" class="brand-logo" onclick="return show('index');">AI Ph<img style="height:17px ;width:17px;"
+            src="image/o-letter.png">to
           Editor</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="#" onclick="return show('index');">Home</a></li>
@@ -141,7 +148,7 @@
       <div class="row center" style="margin-top:4%; margin-right:3.77%;">
         <div class="button" style="margin-inline-start: 4%">
           <span class="button__mask"></span>
-          <span class="button__text">Upload<span>
+          <span class="button__text" onclick="sendFile('fogg_removal')">Upload<span>
               <span class="button__text button__text--bis">Upload</span></div>
       </div>
     </div>
@@ -150,7 +157,8 @@
   <div id="object_removal">
     <nav class="black">
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo" onclick="return show('index');">AI Ph<img style="height:17px ;width:17px;" src="image/o-letter.png">to
+        <a href="#" class="brand-logo" onclick="return show('index');">AI Ph<img style="height:17px ;width:17px;"
+            src="image/o-letter.png">to
           Editor</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="#" onclick="return show('index');">Home</a></li>
@@ -164,7 +172,7 @@
       <div class="row center" style="margin-top:4%; margin-right:3.77%;">
         <div class="button" style="margin-inline-start: 4%">
           <span class="button__mask"></span>
-          <span class="button__text">Upload<span>
+          <span class="button__text" onclick="sendFile('object_removal')">Upload<span>
               <span class="button__text button__text--bis">Upload</span></div>
       </div>
     </div>
@@ -174,7 +182,8 @@
   <div id="blur_to_hd">
     <nav class="black">
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo" onclick="return show('index');">AI Ph<img style="height:17px ;width:17px;" src="image/o-letter.png">to
+        <a href="#" class="brand-logo" onclick="return show('index');">AI Ph<img style="height:17px ;width:17px;"
+            src="image/o-letter.png">to
           Editor</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="#" onclick="return show('index');">Home</a></li>
@@ -188,12 +197,51 @@
       <div class="row center" style="margin-top:4%; margin-right:3.77%;">
         <div class="button" style="margin-inline-start: 4%">
           <span class="button__mask"></span>
-          <span class="button__text">Upload<span>
+          <span class="button__text" onclick="sendFile('blur_to_hd');return show('show_image');">Upload<span>
               <span class="button__text button__text--bis">Upload</span></div>
       </div>
     </div>
   </div>
   </div>
+
+  <div id="show_image">
+    <nav class="black">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo" onclick="return show('index');">AI Ph<img style="height:17px ;width:17px;"
+            src="image/o-letter.png">to
+          Editor</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="#" onclick="return show('index');">Home</a></li>
+          <li><a href="#">Downloads</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="split left megrim_font">
+      <div class="centered">
+        <img id="input_image">
+        <div style="padding-top:50%;">Original Image</div>
+      </div>
+    </div>
+
+    <div class="split right megrim_font">
+      <div class="centered">
+        <img id="output_image">
+        <div style="padding-top:50%;">Generated Image</div>
+      </div>
+    </div>
+
+    <!-- <div id="output" style="display: none;">
+      <img id="input_image">
+      <img id="output_image">
+    </div> -->
+  </div>
+
+  <form style="display: none;" enctype="multipart/form-data" id="form">
+    <input type="file" name="image" id="input_handle">
+    <input type="text" id="type" name="type">
+  </form>
 
 </body>
 
