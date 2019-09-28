@@ -26,7 +26,7 @@ $('document').ready(function(){
                 }
                 reader.readAsDataURL($('#input_handle')[0].files[0]);
                 
-                $('#output_image').attr("src", 'http://127.0.0.1:5000/static/uploads/' + data);
+                $('#output_image').attr("src", 'http://127.0.0.1:5000/static/outputs/' + data);
             }
         });
     });

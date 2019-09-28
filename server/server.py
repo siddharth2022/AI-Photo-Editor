@@ -6,12 +6,19 @@ from flask_cors import CORS
 import os
 import random
 import numpy as np
+import time
 
+#image_to_map
+from keras.preprocessing.image import img_to_array
+from keras.preprocessing.image import load_img
+from matplotlib import pyplot as plt
+from numpy import vstack
+
+image_to_map = load_model('models/image_to_map_g_model.h5')
+image_to_map._make_predict_function()
 
 global graph
 graph = tf.get_default_graph()
-
-image_to_map = load_model('models/image_to_map.h5')
 
 app = Flask(__name__)
 CORS(app)
@@ -27,24 +34,23 @@ def predict(filename, process_type):
     if process_type == 'fogg_removal':
         pass
     if process_type == 'image_to_map':
-        # size=(256,256)
-        # sat_img = load_img(input_path, target_size=size)
-        # sat_img = img_to_array(sat_img)
-        # # split into satellite and map
-        # sat_img = (sat_img - 127.5) / 127.5
-
-        # input_image=[]
-        # input_image.append(sat_img)
-        # input_image=np.array(input_image)
-        # gen_image=image_to_map.predict(input_image)
-        # gen_image=(gen_image+1)/2.0
-        # save_img(output_path, gen_image)
-        pass
+        size=(256,256)
+        #image_to_map = load_model('models/image_to_map_g_model.h5')
+        sat_img = load_img(input_path, target_size=size)
+        sat_img = img_to_array(sat_img)
+        # split into satellite and map
+        sat_img = (sat_img - 127.5) / 127.5
+        input_image=[]
+        input_image.append(sat_img)
+        input_image=np.array(input_image)
+        print(input_image.shape)
+        gen_image=image_to_map.predict(input_image)
+        gen_image=(gen_image+1)/2.0
+        save_img(output_path, gen_image[0])
     if process_type == 'blur_to_hd':
         pass
     if process_type == 'face_aging':
         pass
-
 
 @app.route("/")
 def index():
