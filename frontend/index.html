@@ -28,7 +28,9 @@
   <link rel="icon" href="image/o-letter.png" type="image/png" sizes="16x16">
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/script.js"></script>
+  
 </head>
 
 <body onload="return show('index');">
@@ -187,7 +189,18 @@
           Editor</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="#" onclick="return show('index');">Home</a></li>
-          <li><a href="#">Modules</a></li>
+          <li>
+            <!-- Dropdown Trigger -->
+            <a class='dropdown-trigger black' href='#' data-target='dropdown1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Modules&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <!-- Dropdown Structure -->
+            <ul id='dropdown1' class='dropdown-content black '>
+              <li><a class="white-text center" href="#!">Remove Fogg</a></li>
+              <li><a class="white-text center " href="#!">Remove Object</a></li>
+              <li><a class="white-text center" href="#!">Blue to HD</a></li>
+              <li><a class="white-text center" href="#!">Face Aging</a></li>
+              <li><a class="white-text center" href="#!">Image to Map</a></li>
+            </ul>
+          </li>
           <li><a href="#">Downloads</a></li>
         </ul>
       </div>

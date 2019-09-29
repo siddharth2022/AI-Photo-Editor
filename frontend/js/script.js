@@ -30,4 +30,8 @@ $('document').ready(function(){
             }
         });
     });
+      // Or with jQuery
+    
+      $('.dropdown-trigger').dropdown();
+
 });

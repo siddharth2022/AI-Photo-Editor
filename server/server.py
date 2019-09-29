@@ -7,7 +7,8 @@ import os
 import random
 import numpy as np
 import time
-
+import subprocess as sp
+#sp.Popen(['python', 'main.py'], stdout=sp.DEVNULL, stderr=sp.DEVNULL)
 #image_to_map
 from keras.preprocessing.image import img_to_array
 from keras.preprocessing.image import load_img
@@ -16,6 +17,9 @@ from numpy import vstack
 
 image_to_map = load_model('models/image_to_map_g_model.h5')
 image_to_map._make_predict_function()
+
+fogg_removal = load_model('models/fogg_removal.h5')
+fogg_removal._make_predict_function()
 
 global graph
 graph = tf.get_default_graph()
@@ -30,9 +34,21 @@ def predict(filename, process_type):
     output_path = os.path.join(app.config['OUTPUT_FOLDER'], filename)
 
     if process_type == 'object_removal':
-        pass
+        sp.Popen(['python', 'main.py', input_path], stdout=sp.DEVNULL, stderr=sp.DEVNULL)
     if process_type == 'fogg_removal':
-        pass
+        size=(256,256)
+        #image_to_map = load_model('models/image_to_map_g_model.h5')
+        sat_img = load_img(input_path, target_size=size)
+        sat_img = img_to_array(sat_img)
+        # split into satellite and map
+        sat_img = (sat_img - 127.5) / 127.5
+        input_image=[]
+        input_image.append(sat_img)
+        input_image=np.array(input_image)
+        print(input_image.shape)
+        gen_image=fogg_removal.predict(input_image)
+        gen_image=(gen_image+1)/2.0
+        save_img(output_path, gen_image[0])
     if process_type == 'image_to_map':
         size=(256,256)
         #image_to_map = load_model('models/image_to_map_g_model.h5')
