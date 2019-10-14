@@ -18,7 +18,7 @@ $('document').ready(function(){
             method: 'POST',
             type: 'POST',
             success: function (data) {
-                $('#output').show();
+                //$('#output').show();
 
                 var reader = new FileReader();
                 reader.onload = function (e) {

@@ -1,3 +1,5 @@
+#import warnings
+#warnings.filterwarnings("ignore")
 from flask import Flask, request, send_file
 import tensorflow as tf
 from keras.models import load_model
