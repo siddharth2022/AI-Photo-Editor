@@ -2,5 +2,4 @@
 /server/static/uploads/*
 /server/static/outputs/*
 /server/model/pretrained_model
-/server/images
 desktop.ini
