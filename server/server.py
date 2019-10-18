@@ -17,6 +17,9 @@ from keras.preprocessing.image import load_img
 from matplotlib import pyplot as plt
 from numpy import vstack
 
+blur_to_hd = load_model('models/blur_to_hd.h5')
+blur_to_hd._make_predict_function()
+
 image_to_map = load_model('models/image_to_map_g_model.h5')
 image_to_map._make_predict_function()
 
@@ -66,7 +69,19 @@ def predict(filename, process_type):
         gen_image=(gen_image+1)/2.0
         save_img(output_path, gen_image[0])
     if process_type == 'blur_to_hd':
-        pass
+        size=(256,256)
+        #image_to_map = load_model('models/image_to_map_g_model.h5')
+        sat_img = load_img(input_path, target_size=size)
+        sat_img = img_to_array(sat_img)
+        # split into satellite and map
+        sat_img = (sat_img - 127.5) / 127.5
+        input_image=[]
+        input_image.append(sat_img)
+        input_image=np.array(input_image)
+        print(input_image.shape)
+        gen_image=blur_to_hd.predict(input_image)
+        gen_image=(gen_image+1)/2.0
+        save_img(output_path, gen_image[0])
     if process_type == 'face_aging':
         pass
 
