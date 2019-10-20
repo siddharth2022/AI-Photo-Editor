@@ -8,6 +8,10 @@ An easy handy tool to enhance your images.
 
 # Getting Started
 
+1. After cloning this repository, download trained model folder from [**this link**](https://mega.nz/#F!zfQCjADD!Iu94Q2tr_6LectFjPKQ7lw "this link").
+2. Place it with the cloned folder - **location is already set.**
+
+# Run it :tw-1f603:
 1. Run flask server located in /server/server.py
 ```
 python server.py
@@ -16,7 +20,7 @@ python server.py
 
 # How It Works
 - Uses **Flask** as backend server.
-- Different ML model is used to generate images, read more [here](https://github.com/arshit09/AI-Photo-Editor/blob/master/AIPhotoEditor.pdf "here").
+- Different ML model is used to generate images, read more [**here**](https://github.com/arshit09/AI-Photo-Editor/blob/master/AIPhotoEditor.pdf "here").
 
 # Recommended Environment
 - Python 3.0 or above
