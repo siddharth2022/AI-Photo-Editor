@@ -11,7 +11,7 @@ An easy handy tool to enhance your images.
 1. After cloning this repository, download trained model folder from [**this link**](https://mega.nz/#F!zfQCjADD!Iu94Q2tr_6LectFjPKQ7lw "this link").
 2. Place it with the cloned folder - **location is already set.**
 
-# Run it :tw-1f603:
+# Run it
 1. Run flask server located in /server/server.py
 ```
 python server.py
