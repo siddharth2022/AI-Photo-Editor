@@ -25,7 +25,8 @@ python server.py
 # Recommended Environment
 - Python 3.0 or above
 - TensorFlow
-- Keras
+- Keras v2.2.5
+- flask_cors
 - OpenCV
 - Numpy
 
