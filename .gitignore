@@ -1,0 +1,5 @@
+/server/models
+/server/static/uploads/*
+/server/static/outputs/*
+/server/model/pretrained_model
+desktop.ini
