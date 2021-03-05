@@ -1,10 +1,17 @@
 # AI Photo Editor
 
-
 An easy handy tool to enhance your images.
 
 # Screenshot
-![Screenshot_1](https://raw.githubusercontent.com/arshit09/AI-Photo-Editor/master/frontend/image/cover.JPG "HomePage")
+**1. Home Page**
+[![HomePage](https://raw.githubusercontent.com/arshit09/AI-Photo-Editor/master/frontend/image/cover.JPG "HomePage")](https://raw.githubusercontent.com/arshit09/AI-Photo-Editor/master/frontend/image/cover.JPG "HomePage")
+
+**2. Blur To HD**
+[![Blur To HD](https://raw.githubusercontent.com/arshit09/AI-Photo-Editor/master/frontend/image/blur_to_hd.jpg "Blur To HD")](https://raw.githubusercontent.com/arshit09/AI-Photo-Editor/master/frontend/image/blur_to_hd.jpg "Blur To HD")
+
+**2.1. Blur To HD Output**
+[![Blur To HD Output](https://raw.githubusercontent.com/arshit09/AI-Photo-Editor/master/frontend/image/blur_to_hd_output.jpg "Blur To HD Output")](https://raw.githubusercontent.com/arshit09/AI-Photo-Editor/master/frontend/image/blur_to_hd_output.jpg "Blur To HD Output")
+
 
 # Getting Started
 
@@ -28,6 +35,7 @@ python server.py
 - Uses **Flask** as backend server.
 - Different ML model is used to generate images, read more [**here**](https://github.com/arshit09/AI-Photo-Editor/blob/master/AIPhotoEditor.pdf "here").
 
+
 # Recommended Environment
 - Python 3.5-3.8
 - TensorFlow 1.15
@@ -35,6 +43,7 @@ python server.py
 - flask_cors
 - OpenCV
 - Numpy
+
 
 # Features
 - Remove fog from the image
