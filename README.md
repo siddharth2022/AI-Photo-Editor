@@ -4,28 +4,34 @@
 An easy handy tool to enhance your images.
 
 # Screenshot
-![Screenshot_1](https://raw.githubusercontent.com/arshit09/AI-Photo-Editor/master/frontend/image/cover.JPG "SS")
+![Screenshot_1](https://raw.githubusercontent.com/arshit09/AI-Photo-Editor/master/frontend/image/cover.JPG "HomePage")
 
 # Getting Started
 
 1. After cloning this repository, download trained model folder from [**this link**](https://mega.nz/#F!zfQCjADD!Iu94Q2tr_6LectFjPKQ7lw "this link").
-2. Place it with the cloned folder - **location is already set.**
+2. Place it with the cloned folder - **location is already configured in the code. No need to modify the code**
 
 # Run it
-1. Run flask server located in /server/server.py
+1. Install all the required dependencies.
+```
+pip3 install -r requirements.txt
+```
+2. Run flask server "server.py" located in "/server/".
 ```
 python server.py
 ```
-2. Open index.html from /frontend/
+
+3. Open index.html from /frontend/
+
 
 # How It Works
 - Uses **Flask** as backend server.
 - Different ML model is used to generate images, read more [**here**](https://github.com/arshit09/AI-Photo-Editor/blob/master/AIPhotoEditor.pdf "here").
 
 # Recommended Environment
-- Python 3.0 or above
-- TensorFlow
-- Keras v2.2.5
+- Python 3.5-3.8
+- TensorFlow 1.15
+- Keras 2.2.5
 - flask_cors
 - OpenCV
 - Numpy
