@@ -10,6 +10,7 @@
       document.getElementById('face_aging').style.display = 'none';
       document.getElementById('image_to_map').style.display = 'none';
       document.getElementById('object_removal').style.display = 'none';
+      document.getElementById('show_image').style.display = 'none';
       document.getElementById(shown).style.display = 'block';
       return false;
     }
@@ -25,6 +26,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Photo Editor</title>
   <link rel="icon" href="image/o-letter.png" type="image/png" sizes="16x16">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/script.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body onload="return show('index');">
@@ -56,13 +62,13 @@
           <span class="button__text button__text--bis">Blur to HD</span>
         </div>
       </a>
-      <a href="#" onclick="return show('face_aging');">
+      <!-- <a href="#" onclick="return show('face_aging');">
         <div class="button" style="margin-inline-start: 4%">
           <span class="button__mask"></span>
           <span class="button__text">Face Aging</span>
           <span class="button__text button__text--bis">Face Aging</span>
         </div>
-      </a>
+      </a> -->
       <a href="#" onclick="return show('image_to_map');">
         <div class="button" style="margin-inline-start: 4%">
           <span class="button__mask"></span>
@@ -79,12 +85,24 @@
   <div id="face_aging">
     <nav class="black">
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo" onclick="return show('index');">AI Ph<img style="height:17px ;width:17px;" src="image/o-letter.png">to
+        <a href="#" class="brand-logo" onclick="return show('index');">AI Ph<img style="height:17px ;width:17px;"
+            src="image/o-letter.png">to
           Editor</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#" onclick="return show('index');">Home</a></li>
-          <li><a href="#">Downloads</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="#" onclick="return show('index');">Home <i class=" right small material-icons">home</i></a></li>
+          <li>
+            
+            <a class='dropdown-trigger black' href='#' data-target='dropdown4'>&nbsp;&nbsp;Modules <i class="right small material-icons">style</i>&nbsp;&nbsp;</a>
+            
+            <ul id='dropdown4' class='dropdown-content black '>
+              <li><a class="white-text center" href="#!" onclick="return show('fogg_removal');">Remove Fogg</a></li>
+              <li><a class="white-text center" href="#!" onclick="return show('object_removal');">Remove Object</a></li>
+              <li><a class="white-text center" href="#!" onclick="return show('blur_to_hd');">Blur to HD</a></li>
+              <li><a class="white-text center" href="#!">Face Aging</a></li>
+              <li><a class="white-text center" href="#!" onclick="return show('image_to_map');">Image to Map</a></li>
+            </ul>
+          </li>
+          <li><a href="https://github.com/arshit09/AI-Photo-Editor">Downloads<i class="right small material-icons">cloud_download</i></a></li>
         </ul>
       </div>
     </nav>
@@ -93,7 +111,7 @@
       <div class="row center" style="margin-top:4%; margin-right:3.77%;">
         <div class="button" style="margin-inline-start: 4%">
           <span class="button__mask"></span>
-          <span class="button__text">Upload<span>
+          <span class="button__text" onclick="sendFile('face_aging');return show('show_image');">Upload<span>
               <span class="button__text button__text--bis">Upload</span></div>
       </div>
     </div>
@@ -103,21 +121,33 @@
   <div id="image_to_map">
     <nav class="black">
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo" onclick="return show('index');">AI Ph<img style="height:17px ;width:17px;" src="image/o-letter.png">to
+        <a href="#" class="brand-logo" onclick="return show('index');">AI Ph<img style="height:17px ;width:17px;"
+            src="image/o-letter.png">to
           Editor</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#" onclick="return show('index');">Home</a></li>
-          <li><a href="#">Downloads</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="#" onclick="return show('index');">Home <i class=" right small material-icons">home</i></a></li>
+          <li>
+            <!-- Dropdown Trigger -->
+            <a class='dropdown-trigger black' href='#' data-target='dropdown5'>&nbsp;&nbsp;Modules <i class="right small material-icons">style</i>&nbsp;&nbsp;</a>
+            <!-- Dropdown Structure -->
+            <ul id='dropdown5' class='dropdown-content black '>
+              <li><a class="white-text center" href="#!" onclick="return show('fogg_removal');">Remove Fogg</a></li>
+              <li><a class="white-text center" href="#!" onclick="return show('object_removal');">Remove Object</a></li>
+              <li><a class="white-text center" href="#!" onclick="return show('blur_to_hd');">Blur to HD</a></li>
+              <!-- <li><a class="white-text center" href="#!" onclick="return show('face_aging');">Face Aging</a></li> -->
+              <li><a class="white-text center" href="#!">Image to Map</a></li>
+            </ul>
+          </li>
+          <li><a href="https://github.com/arshit09/AI-Photo-Editor">Downloads<i class="right small material-icons">cloud_download</i></a></li>
         </ul>
       </div>
     </nav>
-    <div style="text-align: center;color: white;" class="fontst">Create Map</div>
-    <div class="desc">From Satellite Image<br>
+    <div style="text-align: center;color: white;" class="fontst">Generate a Map</div>
+    <div class="desc">From Satellite The Image<br>
       <div class="row center" style="margin-top:4%; margin-right:3.77%;">
         <div class="button" style="margin-inline-start: 4%">
           <span class="button__mask"></span>
-          <span class="button__text">Upload<span>
+          <span class="button__text" onclick="sendFile('image_to_map');return show('show_image');">Upload<span>
               <span class="button__text button__text--bis">Upload</span></div>
       </div>
     </div>
@@ -127,12 +157,24 @@
   <div id="fogg_removal">
     <nav class="black">
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo" onclick="return show('index');">AI Ph<img style="height:17px ;width:17px;" src="image/o-letter.png">to
+        <a href="#" class="brand-logo" onclick="return show('index');">AI Ph<img style="height:17px ;width:17px;"
+            src="image/o-letter.png">to
           Editor</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#" onclick="return show('index');">Home</a></li>
-          <li><a href="#">Downloads</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="#" onclick="return show('index');">Home <i class=" right small material-icons">home</i></a></li>
+          <li>
+            <!-- Dropdown Trigger -->
+            <a class='dropdown-trigger black' href='#' data-target='dropdown1'>&nbsp;&nbsp;Modules <i class="right small material-icons">style</i>&nbsp;&nbsp;</a>
+            <!-- Dropdown Structure -->
+            <ul id='dropdown1' class='dropdown-content black '>
+              <li><a class="white-text center" href="#!">Remove Fogg</a></li>
+              <li><a class="white-text center" href="#!" onclick="return show('object_removal');">Remove Object</a></li>
+              <li><a class="white-text center" href="#!" onclick="return show('blur_to_hd');">Blur to HD</a></li>
+              <!-- <li><a class="white-text center" href="#!" onclick="return show('face_aging');">Face Aging</a></li> -->
+              <li><a class="white-text center" href="#!" onclick="return show('image_to_map');">Image to Map</a></li>
+            </ul>
+          </li>
+          <li><a href="https://github.com/arshit09/AI-Photo-Editor">Downloads<i class="right small material-icons">cloud_download</i></a></li>
         </ul>
       </div>
     </nav>
@@ -141,7 +183,7 @@
       <div class="row center" style="margin-top:4%; margin-right:3.77%;">
         <div class="button" style="margin-inline-start: 4%">
           <span class="button__mask"></span>
-          <span class="button__text">Upload<span>
+          <span class="button__text" onclick="sendFile('fogg_removal');return show('show_image');">Upload<span>
               <span class="button__text button__text--bis">Upload</span></div>
       </div>
     </div>
@@ -150,12 +192,24 @@
   <div id="object_removal">
     <nav class="black">
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo" onclick="return show('index');">AI Ph<img style="height:17px ;width:17px;" src="image/o-letter.png">to
+        <a href="#" class="brand-logo" onclick="return show('index');">AI Ph<img style="height:17px ;width:17px;"
+            src="image/o-letter.png">to
           Editor</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#" onclick="return show('index');">Home</a></li>
-          <li><a href="#">Downloads</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="#" onclick="return show('index');">Home <i class=" right small material-icons">home</i></a></li>
+          <li>
+            <!-- Dropdown Trigger -->
+            <a class='dropdown-trigger black' href='#' data-target='dropdown2'>&nbsp;&nbsp;Modules <i class="right small material-icons">style</i>&nbsp;&nbsp;</a>
+            <!-- Dropdown Structure -->
+            <ul id='dropdown2' class='dropdown-content black '>
+              <li><a class="white-text center" href="#!" onclick="return show('fogg_removal');">Remove Fogg</a></li>
+              <li><a class="white-text center" href="#!">Remove Object</a></li>
+              <li><a class="white-text center" href="#!" onclick="return show('blur_to_hd');">Blur to HD</a></li>
+              <!-- <li><a class="white-text center" href="#!" onclick="return show('face_aging');">Face Aging</a></li> -->
+              <li><a class="white-text center" href="#!" onclick="return show('image_to_map');">Image to Map</a></li>
+            </ul>
+          </li>
+          <li><a href="https://github.com/arshit09/AI-Photo-Editor">Downloads<i class="right small material-icons">cloud_download</i></a></li>
         </ul>
       </div>
     </nav>
@@ -164,7 +218,7 @@
       <div class="row center" style="margin-top:4%; margin-right:3.77%;">
         <div class="button" style="margin-inline-start: 4%">
           <span class="button__mask"></span>
-          <span class="button__text">Upload<span>
+          <span class="button__text" onclick="sendFile('object_removal');return show('show_image');">Upload<span>
               <span class="button__text button__text--bis">Upload</span></div>
       </div>
     </div>
@@ -174,12 +228,24 @@
   <div id="blur_to_hd">
     <nav class="black">
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo" onclick="return show('index');">AI Ph<img style="height:17px ;width:17px;" src="image/o-letter.png">to
+        <a href="#" class="brand-logo" onclick="return show('index');">AI Ph<img style="height:17px ;width:17px;"
+            src="image/o-letter.png">to
           Editor</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#" onclick="return show('index');">Home</a></li>
-          <li><a href="#">Downloads</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="#" onclick="return show('index');">Home <i class=" right small material-icons">home</i></a></li>
+          <li>
+            <!-- Dropdown Trigger -->
+            <a class='dropdown-trigger black' href='#' data-target='dropdown3'>&nbsp;&nbsp;Modules <i class="right small material-icons">style</i>&nbsp;&nbsp;</a>
+            <!-- Dropdown Structure -->
+            <ul id='dropdown3' class='dropdown-content black '>
+              <li><a class="white-text center" href="#!" onclick="return show('fogg_removal');">Remove Fogg</a></li>
+              <li><a class="white-text center" href="#!" onclick="return show('object_removal');">Remove Object</a></li>
+              <li><a class="white-text center" href="#!">Blur to HD</a></li>
+              <!-- <li><a class="white-text center" href="#!" onclick="return show('face_aging');">Face Aging</a></li> -->
+              <li><a class="white-text center" href="#!" onclick="return show('image_to_map');">Image to Map</a></li>
+            </ul>
+          </li>
+          <li><a href="https://github.com/arshit09/AI-Photo-Editor">Downloads<i class="right small material-icons">cloud_download</i></a></li>
         </ul>
       </div>
     </nav>
@@ -188,12 +254,62 @@
       <div class="row center" style="margin-top:4%; margin-right:3.77%;">
         <div class="button" style="margin-inline-start: 4%">
           <span class="button__mask"></span>
-          <span class="button__text">Upload<span>
+          <span class="button__text" onclick="sendFile('blur_to_hd');return show('show_image');">Upload<span>
               <span class="button__text button__text--bis">Upload</span></div>
       </div>
     </div>
   </div>
   </div>
+
+  <div id="show_image">
+    <nav class="black">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo" onclick="return show('index');">AI Ph<img style="height:17px ;width:17px;"
+            src="image/o-letter.png">to
+          Editor</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="#" onclick="return show('index');">Home <i class=" right small material-icons">home</i></a></li>
+          <li>
+            <!-- Dropdown Trigger -->
+            <a class='dropdown-trigger black' href='#' data-target='dropdown99'>&nbsp;&nbsp;Modules <i class="right small material-icons">style</i>&nbsp;&nbsp;</a>
+            <!-- Dropdown Structure -->
+            <ul id='dropdown99' class='dropdown-content black '>
+              <li><a class="white-text center" href="#!" onclick="return show('fogg_removal');">Remove Fogg</a></li>
+              <li><a class="white-text center" href="#!" onclick="return show('object_removal');">Remove Object</a></li>
+              <li><a class="white-text center" href="#!" onclick="return show('blur_to_hd');">Blur to HD</a></li>
+              <!-- <li><a class="white-text center" href="#!" onclick="return show('face_aging');">Face Aging</a></li> -->
+              <li><a class="white-text center" href="#!" onclick="return show('image_to_map');">Image to Map</a></li>
+            </ul>
+          </li>
+          <li><a href="https://github.com/arshit09/AI-Photo-Editor">Downloads<i class="right small material-icons">cloud_download</i></a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="split left megrim_font">
+      <div class="centered">
+        <img id="input_image" width="50%">
+        <div style="padding-top:10%;">Original Image</div>
+      </div>
+    </div>
+
+    <div class="split right megrim_font">
+      <div class="centered" >
+        <img id="output_image" width="50%">
+        <div style="padding-top:10%;">Generated Image</div>
+      </div>
+    </div>
+
+    <!-- <div id="output" style="display: none;">
+      <img id="input_image">
+      <img id="output_image">
+    </div> -->
+  </div>
+
+  <form style="display: none;" enctype="multipart/form-data" id="form">
+    <input type="file" name="image" id="input_handle">
+    <input type="text" id="type" name="type">
+  </form>
 
 </body>
 
